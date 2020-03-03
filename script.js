@@ -2,9 +2,23 @@
     Author      : Isaac Vander Sluis
     Description : Handles logic for web app */
 
-function login(form) {
-  if (form.email.value == "honeyguy@gmail.com" &&
-      form.password.value == "password") {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        showResult(xhttp.responseXML);
+    }
+};
+xhttp.open("GET", "passwords.xml", true);
+xhttp.send(); 
+
+function login(form, xml) {
+	var eVal = form.email.value;
+    ePath =  `/bookstore/book[price=${eVal}]/price[text()]`;
+    var pVal = form.password.value;
+    pPath =   `/bookstore/book[price=${pVal}]/price[text()]`;
+    
+  if (eVal = ePath &&
+      pVal = pPath) {
     window.location.href = "search.html";
   } else {
     alert("Invalid login");
