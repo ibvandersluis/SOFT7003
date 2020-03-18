@@ -36,7 +36,7 @@
             $(xml).find('user').each( function(){
                 var item = $(this);
 
-                if(item.find('name').text()==$('#userid').val() && item.find('password').text()==$('#pwd').val())
+                if(item.find('name').text()==$('#userid').val() && item.find('password').text()==sha256($('#pwd').val()))
                 {
                     window.location.href= "search.html";
                 }
@@ -46,5 +46,6 @@
 });
 </script>
   <script src="script.js"></script>
+ <script src="sha.js"></script>
 </body>
 </html>
