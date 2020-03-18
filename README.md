@@ -1,17 +1,21 @@
 # Honey Tracker
 
 ## Description
-This web app tracks honey and where it came from.
+This web app tracks honey and its orgin. Have been developed to help the client to track the products sale earie.
 
 This project was completed to meet the coursework requirements for SOFT7003 Advanced Software Development at Oxford Brookes University, spring 2020.
 
 Instructor: Rachel Harrison
 
 ## Installation
-Installation instructions will be detailed here.
+This software have been develop as a web application. There is not  need for instalation.  web application can be accessed on any web browser. To be able to use this web application you need to register yourself  and permission have to be granted
 
 ## Usage
-User instructions will be detailed here.
+To make sales easy  for the user, we are annoncing this web app tracker. This application will help you to stay current, understand performance, 
+discover opporunities, develop strategy.  This app mesaures what consumers are buying, which of your product is most wanted. 
+Will let you to discover what aerie your product is selling best. All products have a barcode, we use this barcode to create app that is able to 
+provide you with information, such us product orgin, make, ingrediens.
+
 
 ## Authors
 - **Author Name** - *Brief role description* - [github_link](#)
