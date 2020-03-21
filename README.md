@@ -1,7 +1,11 @@
 # Honey Tracker
 
 ## Description
+
 This web app tracks honey and its orgin. Have been developed to help the client to track the products sale earie.
+
+This web app tracks honey and its orgin.
+
 
 This project was completed to meet the coursework requirements for SOFT7003 Advanced Software Development at Oxford Brookes University, spring 2020.
 
