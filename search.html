@@ -28,8 +28,36 @@
       <div id="table"></div>
       <form id="cud">
         <!--Radio buttons: Add/Update/Remove-->
+        <label class="radio-inline">
+          <input type="radio" name="cud-radio">Add
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="cud-radio">Update
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="cud-radio">Remove
+        </label>
         <!--Form: Add information needed-->
+        <label for="lotNumber">Lot No.</label>
+        <input type="text" id="lotNumber" name="lotNumber">
+        <label for="quantity">Quantity</label>
+        <input type="text" id="quantity" name="quantity">
+        <label for="farmName">Farm</label>
+        <input type="text" id="farmName" name="farmName">
+        <label for="importer">Importer</label>
+        <input type="text" id="importer" name="importer">
+        <label for="packer">Packer</label>
+        <input type="text" id="packer" name="packer">
+        <label for="honeyType">Honey Type</label>
+        <input type="text" id="honeyType" name="honeyType">
+        <label for="hiveNumber">Hive No.</label>
+        <input type="text" id="hiveNumber" name="hiveNumber">
+        <label for="qualityControl">Quality Control</label>
+        <input type="text" id="qualityControl" name="qualityControl">
+        <label for="weight">Weight</label>
+        <input type="text" id="weight" name="weight">
         <!--Button: Do stuff-->
+        <input type="button" value="Submit">
       </form>
     </section>
     <script src="script.js"></script>
