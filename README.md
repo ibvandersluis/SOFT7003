@@ -8,7 +8,7 @@ This project was completed to meet the coursework requirements for SOFT7003 Adva
 Instructor: Rachel Harrison
 
 ## Installation
-Installation instructions will be detailed here.
+The website has the can be found [here](http://asdbrookes.atwebpages.com/)
 
 ## Usage
 User instructions will be detailed here.
