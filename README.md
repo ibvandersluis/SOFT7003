@@ -13,9 +13,9 @@ The website has the can be found [here](http://asdbrookes.atwebpages.com/). Sinc
 ## Usage
 Currently, the website does not offer the ability to add aditional user accounts or change a users log in credentials from the website. If a user wishes to change log in credentials, add or delete accounts then the only way to do so is to edit the file named "passwords.xml". However, two user accounts have already been created for each user type wih the following credentials:
 
-Farms
-  user name: farmGuy1       user name: farmGuy2 
-  password: farm1           password: farm2
+-Farms
+  --user name: farmGuy1       user name: farmGuy2 
+  --password: farm1           password: farm2
 
 Stores
   user name:
