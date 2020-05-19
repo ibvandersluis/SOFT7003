@@ -20,20 +20,22 @@ Farms
 - password: farm2
 
 Stores
-  user name:
-  password:
+- user name: storeGuy1
+- password: store1
+- user name: storeGuy2
+- password: store2
   
 Importers
-  user name:
-  password:
+- user name: importGuy1
+- password: import1
+- user name: importGuy2
+- password: import2
 
-packers
-  user name:
-  password:
-
-lots
-  user name:
-  password:
+Packers
+- user name: packGuy1
+- password: pack1
+- user name: packGuy2
+- password: pack2
 
 ## Authors
 - **Author Name** - *Brief role description* - [github_link](#)
