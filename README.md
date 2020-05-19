@@ -8,7 +8,7 @@ This project was completed to meet the coursework requirements for SOFT7003 Adva
 Instructor: Rachel Harrison
 
 ## Installation
-The website can be found [here](http://asdbrookes.atwebpages.com/). Since this is a website no further instillation is required and the website has been designed specificically to be compatible with all common web browsers. However, the code on the website mirrors the code found on this repository.
+The website can be found [here](http://asdbrookes.atwebpages.com/). Since this is a website no further instillation is required and the website has been designed specificically to be compatible with all common web browsers. However, the code on the website mirrors the code found on this repository. Therefore, [this](https://ibvandersluis.github.io/soft7003/) link can also be used since the website is also hosted on github.
 
 ## Usage
 Currently, the website does not offer the ability to add aditional user accounts or change a users log in credentials from the website. If a user wishes to change log in credentials, add or delete accounts then the only way to do so is to edit the file named "passwords.xml". However, two user accounts have already been created for each user type wih the following credentials:
