@@ -1,6 +1,6 @@
 <!--
  - Name        : search.html
- - Author      : Isaac Vander Sluis
+ - Author      : Isaac Vander Sluis and Mark Anderton
  - Description : Page for searching Honey Tracker XML database. index.html directs here
  -->
 
@@ -27,17 +27,15 @@
       <div id="result"></div>
       <div id="table"></div>
       <form id="cud">
-        <!--Radio buttons: Add/Update/Remove-->
-        <label class="radio-inline">
-          <input type="radio" name="cud-radio">Add
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="cud-radio">Update
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="cud-radio">Remove
-        </label>
-        <!--Form: Add information needed-->
+        <!--Dropdown menu: Add/Update/Remove-->
+        <label for="modifierType">Select Modifier Type</label>
+        <select id="modifierType" name="modifierType">
+          <option value="Add">Add</option>
+          <option value="Update">Update</option>
+          <option value="Remove">Remove</option>
+        </select>
+        <br>
+        <!--Form: Add information needed-->  
         <label for="lotNumber">Lot No.</label>
         <input type="text" id="lotNumber" name="lotNumber">
         <label for="quantity">Quantity</label>
@@ -57,46 +55,135 @@
         <label for="weight">Weight</label>
         <input type="text" id="weight" name="weight">
         <!--Button: Do stuff-->
-        <input type="button" value="Submit">
+        <input type="button" id="submit" value="Submit">
       </form>
     </section>
     <script src="script.js"></script>
     <script>
-      $(document).ready(function(){
-        var xml;
-        var attributes = ['Number', 'Quantity', 'Farm', 'Importer', 'Packer',
-                          'Honey Type', 'Hive Number', 'Quality Control', 'Weight'];
+$(document).ready(function() {
+    var xml;
+    var attributes = ['Number', 'Quantity', 'Farm', 'Importer', 'Packer',
+        'Honey Type', 'Hive Number', 'Quality Control', 'Weight'
+    ];
+    
+    /* Function seraches the XML database to return information about the lot with the corresponding lot number */
+    
+    $.get('pots.xml', null, function(data, textStatus) {
+        var found = false;
+        xml = data;
         // When user clicks login button (#log), 
-        $('#searchbutton').click(function(){
-          // Opens pots.xml
-          $.get('pots.xml', null, function (data, textStatus) {
-            var found = false;
-            xml=data;
+        $('#searchbutton').click(function() {
+            // Opens pots.xml
+
             var values = [];
-            $(xml).find('lots').find('lot').each( function(){
-              var item = $(this);
-              if (item.find('number').text()==$('#searchbox').val()) {
-                found = true;
-                item.children().each( function(){
-                  values.push($(this).text());
-                });
-                var html = `<table>`;
-                for (i = 0;i < attributes.length; i++) {
-                  html += `<tr><th>${attributes[i]}:</th><td>${values[i]}</td></tr>`;
+            $(xml).find('lots').find('lot').each(function() {
+                var item = $(this);
+                if (item.find('number').text() == $('#searchbox').val()) {
+                    found = true;
+                    item.children().each(function() {
+                        values.push($(this).text());
+                    });
+                    var html = `<table>`;
+                    for (i = 0; i < attributes.length; i++) {
+                        html += `<tr><th>${attributes[i]}:</th><td>${values[i]}</td></tr>`;
+                    }
+                    html += `</table>`;
+                    // node = document.createElement("p");
+                    // textnode = document.createTextNode(item.find('farm').text());
+                    // node.appendChild(textnode);
+                    $('#result').append(html);
                 }
-                html += `</table>`;
-                // node = document.createElement("p");
-                // textnode = document.createTextNode(item.find('farm').text());
-                // node.appendChild(textnode);
-                $('#result').append(html);
-              }
             });
             if (found == false) {
-              displayResult();
+                displayResult();
             }
-          });
         });
-      });
+               
+        /* Function seraches the adds, updates and removes from the XML database according to the users inputs */
+
+        $('#submit').click(function() {
+            var modification = document.getElementById("modifierType").value;
+            //Modify database depending on modification type
+            switch (modification) {
+                case "Add":
+                    //Add a lot to the database, based on the users inputs                    
+                    $(xml).find('lots').append("<lot><number>" + $('#lotNumber').val() + "</number><quantity>" + $('#quantity').val() + "</quantity><farm>" + $('#farmName').val() + "</farm><importer>" + $('#importer').val() + "</importer><packer>" + $('#packer').val() + "</packer><honeyType>" + $('#honeyType').val() + "</honeyType><hiveNumber>" + $('#hiveNumber').val() + "</hiveNumber><qualityControl>" + $('#qualityControl').val() + "</qualityControl><weight>" + $('#weight').val() + "</weight></lot>");;
+                    //Alert the user that the lot has been added
+                    window.alert("Lot has been added");
+                    break;
+                case "Update":
+                    //serach xml for the lot with the correct number
+                    $(xml).find('lots').find('lot').each(function() {
+                        var item = $(this);
+                        if (item.find('number').text() == $('#lotNumber').val()) {
+                            //Find out which inputs the user has given,
+                            //Inputs the user has not given will not be changed
+                            var quantity = item.find('quantity').text();
+                            if ($('#quantity').val() != "") {
+                                quantity = $('#quantity').val();
+                            }
+                            var farm = item.find('farm').text();
+                            if ($('#farmName').val() != "") {
+                                farm = $('#farmName').val();
+                            }
+                            var importer = item.find('importer').text();
+                            if ($('#importer').val() != "") {
+                                importer = $('#importer').val();
+                            }
+                            var packer = item.find('packer').text();
+                            if ($('#packer').val() != "") {
+                                packer = $('#packer').val();
+                            }
+                            var honeyType = item.find('honeyType').text();
+                            if ($('#honeyType').val() != "") {
+                                honeyType = $('#honeyType').val();
+                            }
+                            var hiveNumber = item.find('hiveNumber').text();
+                            if ($('#honeyType').val() != "") {
+                                hiveNumber = $('#honeyType').val();
+                            }
+                            var qualityControl = item.find('qualityControl').text();
+                            if ($('#qualityControl').val() != "") {
+                                qualityControl = $('#qualityControl').val();
+                            }
+                            var weight = item.find('weight').text();
+                            if ($('#weight').val() != "") {
+                                weight = $('#weight').val();
+                            }
+                            //Remove all previous data for this lot
+                            item.remove();
+                            //Append all new and unchanged data
+                            $(xml).find('lots').append("<lot><number>" + $('#lotNumber').val() + "</number><quantity>" + quantity + "</quantity><farm>" + farm + "</farm><importer>" + importer + "</importer><packer>" + packer + "</packer><honeyType>" + honeyType + "</honeyType><hiveNumber>" + hiveNumber + "</hiveNumber><qualityControl>" + qualityControl + "</qualityControl><weight>" + weight + "</weight></lot>");
+                            found = true;
+                        }
+                    });
+                    //Alert the user about the change
+                    if (found == false) {
+                        window.alert("Lot cannot be found, check search number");
+                    } else {
+                        window.alert("Lot has been updated");
+                    }
+                    break;
+                case "Remove":
+                    //Serach xml for the lot with the correct number, remove it
+                    $(xml).find('lots').find('lot').each(function() {
+                        var item = $(this);
+                        if (item.find('number').text() == $('#lotNumber').val()) {
+                            item.remove();
+                            found = true;
+                        }
+                    });
+                    //Alert window result
+                    if (found == false) {
+                        window.alert("Lot cannot be found, check search number");
+                    } else {
+                        window.alert("Lot has been removed");
+                    }
+                    break;
+            }
+        });
+    });
+});
     </script>
   </body>
 </html>
