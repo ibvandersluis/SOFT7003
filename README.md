@@ -3,7 +3,7 @@
 ## Description
 This web app tracks honey and where it came from.
 
-This project was completed to meet the coursework requirements for SOFT7003 Advanced Software Development at Oxford Brookes University, spring 2020.
+This project was completed to meet the coursework requirements for SOFT7003 Advanced Software Development at Oxford Brookes University, spring 2020. A demonstration video can be downloaded [here](https://github.com/ibvandersluis/soft7003/blob/master/Honey%20Tracker%20Demonstration.mp4?raw=true).
 
 Instructor: Rachel Harrison
 
