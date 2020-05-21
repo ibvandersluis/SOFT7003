@@ -1,3 +1,9 @@
+<!--
+ - Name        : pots.xsl
+ - Author      : Mark Anderton
+ - Description : Used to display all pot information in multiple tables.
+ -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="1.0"
@@ -6,6 +12,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
 <html> 
 <body>
+<!-- Farm tables -->
   <h2>Farms</h2>
   <table border="1">
     <tr bgcolor="#9acd32">
@@ -21,6 +28,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     </tr>
     </xsl:for-each>
   </table>
+<!-- Store tables -->
   <h2>Stores</h2>
   <table border="1">
     <tr bgcolor="#9acd32">
@@ -50,6 +58,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     </tr>
     </xsl:for-each>
   </table>
+<!-- Importer tables -->
 	<h2>Importers</h2>
   <table border="1">
     <tr bgcolor="#9acd32">
@@ -77,6 +86,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     </tr>
     </xsl:for-each>
   </table>
+<!-- Packer tables -->
   <h2>Packers</h2>
   <table border="1">
     <tr bgcolor="#9acd32">
