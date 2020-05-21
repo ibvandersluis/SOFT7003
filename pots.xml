@@ -1,8 +1,15 @@
+<!--
+ - Name        : pots.xml
+ - Author      : Mark Anderton
+ - Description : Honey Tracker XML database storing information about all farms, importers, packers, stores and lots.
+ -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-stylesheet type="text/xsl" href="pots.xsl"?>
 
 <tracker>
+	<!--Each farm contains: name, type, location, list of hives-->
 	<farms>
 		<farm>
 			<name>McCartney's Farm</name>
@@ -57,6 +64,7 @@
 		</farm>
 	</farms>
 	<stores>
+		<!--Each store contains: name, type, location, list of lots-->
 		<store>
 			<name>Harrison's Store</name>
 			<type>Supermarket</type>
@@ -110,6 +118,7 @@
 		</store>		
 	</stores>
 	<importers>
+		<!--Each importer contains: name, location, list of lots-->
 		<importer>
 			<name>Lennon's Imporing Ltd</name>
 			<location>Penny Lane</location>
@@ -132,6 +141,7 @@
 		</importer>
 	</importers>
 	<packers>
+		<!--Each packer contains: name, location, list of lots-->
 		<packer>
 			<name>Star's Packing Ltd</name>
 			<location>The long and winding road</location>
@@ -157,6 +167,8 @@
 		</packer>
 	</packers>
 	<lots>
+		<!--Each lot contains: number, quantity of pots (total), farm of origin, importer used, packer used,
+		    honey type used, hive number, quality control status, weight (total)-->
 		<lot>
 			<number>99099099</number>
 			<quantity>10</quantity>
