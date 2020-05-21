@@ -62,6 +62,7 @@
     <script>
 $(document).ready(function() {
     var xml;
+    // Create list of attributes we are looking for when we search
     var attributes = ['Number', 'Quantity', 'Farm', 'Importer', 'Packer',
         'Honey Type', 'Hive Number', 'Quality Control', 'Weight'
     ];
@@ -78,22 +79,24 @@ $(document).ready(function() {
             var values = [];
             $(xml).find('lots').find('lot').each(function() {
                 var item = $(this);
+                // If lot with matching number is found
                 if (item.find('number').text() == $('#searchbox').val()) {
+                    // Set found to true
                     found = true;
+                    // Append the data to the values array
                     item.children().each(function() {
                         values.push($(this).text());
                     });
+                    // Add the data to the DOM using HTML table
                     var html = `<table>`;
                     for (i = 0; i < attributes.length; i++) {
                         html += `<tr><th>${attributes[i]}:</th><td>${values[i]}</td></tr>`;
                     }
                     html += `</table>`;
-                    // node = document.createElement("p");
-                    // textnode = document.createTextNode(item.find('farm').text());
-                    // node.appendChild(textnode);
                     $('#result').append(html);
                 }
             });
+            // If no lot matching the number is found, print the table
             if (found == false) {
                 displayResult();
             }

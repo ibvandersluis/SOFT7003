@@ -2,6 +2,7 @@
     Author      : Isaac Vander Sluis
     Description : Handles logic for web app */
 
+// Test function for searching through xsl, not implemented
 function xslTest(searchterm) {
   console.log(searchterm);
   node = document.createElement("p")
@@ -10,6 +11,7 @@ function xslTest(searchterm) {
   document.getElementById("result").appendChild(node);
 }
 
+// Function to load the XML
 function loadXMLDoc(filename) {
   if (window.ActiveXObject) {
     xhttp = new ActiveXObject("Msxml2.XMLHTTP");
@@ -22,6 +24,7 @@ function loadXMLDoc(filename) {
   return xhttp.responseXML;
 }
 
+// Function do display all of the XML/XSL
 function displayResult() {
   xml = loadXMLDoc("pots.xml");
   xsl = loadXMLDoc("pots.xsl");
