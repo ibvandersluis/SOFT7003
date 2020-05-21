@@ -1,10 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
  - Name        : pots.xml
  - Author      : Mark Anderton
  - Description : Honey Tracker XML database storing information about all farms, importers, packers, stores and lots.
  -->
-
-<?xml version="1.0" encoding="UTF-8"?>
 
 <?xml-stylesheet type="text/xsl" href="pots.xsl"?>
 
